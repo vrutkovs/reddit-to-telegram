@@ -36,7 +36,7 @@ if 'CHANNEL' not in os.environ:
 TOKEN = os.environ['TOKEN']
 SUBREDDIT = os.environ['SUBREDDIT']
 CHANNEL = os.environ['CHANNEL']
-START_TIME = datetime.utcnow().timestamp
+START_TIME = datetime.utcnow().timestamp()
 
 
 # Filter out old submissions here by reading a 'last_submission.id file'

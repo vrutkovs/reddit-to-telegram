@@ -14,7 +14,7 @@ from time import sleep
 from datetime import datetime
 
 
-log = logging.getLogger()
+log = logging.getLogger('telegram_poster')
 log.setLevel(logging.DEBUG)
 
 ch = logging.StreamHandler(sys.stdout)

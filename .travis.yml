@@ -16,7 +16,7 @@ script: "python setup.py test"
 
 after_success:
   - if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_PYTHON_VERSION" == "3.5" ]]; then
-    docker build -t vrutkovs/telegram-poster . && 
+    docker build -t vrutkovs/reddit-to-telegram . && 
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && 
-    docker push vrutkovs/telegram-poster;
+    docker push vrutkovs/reddit-to-telegram;
     fi

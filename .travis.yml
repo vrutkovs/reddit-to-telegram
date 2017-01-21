@@ -1,0 +1,22 @@
+sudo: required
+
+services:
+  - docker
+
+language: python
+python:
+  - "3.5"
+  - "3.6"
+
+install:
+  - "pip install flake8"
+  - "flake8 ."
+
+script: "python setup.py test"
+
+after_success:
+  - if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_PYTHON_VERSION" == "3.5" ]]; then
+    docker build -t vrutkovs/telegram-poster . && 
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && 
+    docker push vrutkovs/telegram-poster;
+    fi
